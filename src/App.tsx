@@ -1,3 +1,4 @@
+import React from 'react';
 import Login from './pages/Login/Login';
 import Characters from './pages/Characters/Characters';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
