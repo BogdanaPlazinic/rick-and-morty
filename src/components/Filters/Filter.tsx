@@ -4,40 +4,39 @@ import Species from "../Filters/Category/Species";
 import Status from "../Filters/Category/Status";
 
 const Filter = ({
-  pageNumber,
-  updatePageNumber,
-  updateStatus,
-  updateGender,
-  updateSpecies,
+  setStatus,
+  setPageNumber,
+  setSpecies,
+  setGender,
 }) => {
-  let clear = () => {
-    updateStatus("");
-    updateGender("");
-    updateSpecies("");
-    updatePageNumber(1);
-    window.location.reload(); //add argument
+   let clear = () => {
+    setStatus("");
+    setPageNumber(1);
+    setSpecies("");
+    setGender("");
+    window.location.reload();
   };
   return (
     <div >
       <div >Filters</div>
       <div
         style={{ cursor: "pointer" }}
-        onClick={clear}
+         onClick={clear}
       >
         Clear Filters
       </div>
-      <div  id="accordionExample">
+      <div >
         <Status
-          updatePageNumber={updatePageNumber}
-          updateStatus={updateStatus}
+          setPageNumber={setPageNumber}
+          setSatus={setStatus}
         />
         <Species
-          updatePageNumber={updatePageNumber}
-          updateSpecies={updateSpecies}
+          setSpecies={setSpecies}
+          setPageNumber={setPageNumber}
         />
         <Gender
-          updatePageNumber={updatePageNumber}
-          updateGender={updateGender}
+          setGender={setGender}
+          setPageNumber={setPageNumber}
         />
       </div>
     </div>
@@ -45,42 +44,3 @@ const Filter = ({
 };
 
 export default Filter;
-
-
-
-/* import React from "react";
-import Status from "./Category/Status";
-import Species from "./Category/Species";
-import Gender from "./Category/Gender";
-
-
-export const Filter = ({
-    pageNumber,
-  updatePageNumber,
-  updateStatus,
-  updateGender,
-  updateSpecies,
-}) => {
-    return (
-        <section>
-            <div>
-                Filter
-            </div>
-            <div style={{cursor: "pointer"}}>
-                Clear filters
-            </div>
-
-            <div>
-                <Status 
-                updatePageNumber={updatePageNumber}
-                updateStatus={updateStatus}
-                />
-                <Species />
-                <Gender />
-            </div>
-        </section>
-    )
-}
-
-export default Filter;
- */

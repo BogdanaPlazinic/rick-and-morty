@@ -1,8 +1,27 @@
 import React from 'react';
 
-const FilterBTN = () => {
+const FilterBTN = ({ name, index, items, task, setPageNumber }) => {
     return (
-        <div>FilterBTN</div>
+        <div>
+            
+            <div>
+            <input 
+            onClick={() => {
+                setPageNumber(1);
+                task(items);
+            }}
+            type="radio" 
+            class="testClass" 
+            id={`${name} - ${index}`} 
+            name={name}
+            value="" 
+            />
+            <label class="" for={`${name} - ${index}`}>
+                {items}
+            </label>
+            
+            </div>
+        </div>
     )
 }
 

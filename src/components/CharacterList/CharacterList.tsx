@@ -8,13 +8,17 @@ import SearchComponent from "../SearchComponent/SearchComponent";
 export const CharacterList = () => {
 
   let [pageNumber, setPageNumber] = useState(1);
-  let [status, updateStatus] = useState("");
+  let [status, setStatus] = useState("");
   let [search, setSearch] = useState("");
+  let [gender, setGender] = useState("");
+  let [species, setSpecies] = useState("");
+
+
   let [fetchedData, updateFetchedData] = useState([]);
   let { info, results } = fetchedData;
 
  
-  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}`
+  let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`
     
       useEffect(() => {
         (async function () {
@@ -31,12 +35,12 @@ export const CharacterList = () => {
       </div>
       <div>
         <Filter 
-          pageNumber={pageNumber}
-          updatePageNumber={setPageNumber} 
-          updateStatus={updateStatus}
-          updateGender={() => {}}
-          updateSpecies={() => {}}
-            />
+           setStatus={setStatus}
+           setPageNumber={setPageNumber}
+           setSpecies={setSpecies}
+           setGender={setGender}
+           
+          />
         <CardComponent results={results}/>
      </div>
      <div>
