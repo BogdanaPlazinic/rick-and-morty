@@ -11,7 +11,7 @@ const SearchComponent = ({ setSearch, setPageNumber }) => {
                 <h3>Rick & Morty</h3>
             </div>
         
-            <div>
+            <div >
                 <Search 
                 onChange={e=>{
                     setPageNumber(1);
@@ -26,9 +26,9 @@ const SearchComponent = ({ setSearch, setPageNumber }) => {
                 type="search" />
             </div>
         
-            <div>
+            {/* <div>
                 <Button type="primary" href="http://localhost:3000/">Log Out</Button>
-            </div>
+            </div> */}
                 
         </header>
     )

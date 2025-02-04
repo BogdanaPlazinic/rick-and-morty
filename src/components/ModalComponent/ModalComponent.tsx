@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal } from "antd";
+import { HeartTwoTone } from "@ant-design/icons";
 
 export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
   const handleOk = () => {
@@ -14,6 +15,15 @@ export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
     <Modal open={isOpen} onOk={handleOk} onCancel={handleCancel}>
       {character ? (
         <div>
+          <div>
+            <HeartTwoTone twoToneColor="#eb2f96"
+            style={{
+              fontSize: '25px',
+              cursor: "pointer"
+            }}
+            />
+          </div>
+
           <h1>Name: <br/>{character.name}</h1>
           <img 
             src={character.image} 

@@ -11,12 +11,11 @@ const FilterBTN = ({ name, index, items, task, setPageNumber }) => {
                 task(items);
             }}
             type="radio" 
-            class="testClass" 
             id={`${name} - ${index}`} 
             name={name}
             value="" 
             />
-            <label class="" for={`${name} - ${index}`}>
+            <label for={`${name} - ${index}`} >
                 {items}
             </label>
             

@@ -71,12 +71,6 @@ function Login() {
                         />
                         <button>Sign In</button>
                     </form>
-                    <p>
-                        Need an Account?<br />
-                        <span className="line">
-                            <a href="http://localhost:3000/">Sign Up</a> {/* add router link later */}
-                        </span>
-                    </p>
                 </section>
            {/*  )} */}
         </>

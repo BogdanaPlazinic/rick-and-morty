@@ -4,6 +4,7 @@ import CardComponent from "../CardComponent/CardComponent";
 import Filter from "../Filters/Filter";
 import Paginaton from "../Pagination/Pagination";
 import SearchComponent from "../SearchComponent/SearchComponent";
+import Navbar from "../Navbar/Navbar";
 
 export const CharacterList = () => {
 
@@ -30,6 +31,9 @@ export const CharacterList = () => {
 
   return (
     <section>
+      <div>
+        <Navbar />
+      </div>
       <div>
         <SearchComponent setSearch={setSearch} setPageNumber={setPageNumber}/>
       </div>
