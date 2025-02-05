@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 
 const Paginaton = ( {info, pageNumber, setPageNumber} ) => {
-    if(!info) return '<></>';
+    if(!info) return '';
     return (
         <ReactPaginate 
         className=""

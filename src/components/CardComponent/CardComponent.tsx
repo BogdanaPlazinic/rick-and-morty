@@ -27,7 +27,7 @@ const CardComponent = ({ results }) => {
           <ModalComponent 
             isOpen={isModalOpen} 
             setIsModalOpen={setIsModalOpen} 
-            character={selectedCharacter}
+            character={selectedCharacter} 
           />
         )}
       </>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Divide as Hamburger } from 'hamburger-react'
 import { Button } from 'antd';
+import { HeartTwoTone } from '@ant-design/icons';
 
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false)
@@ -26,6 +27,11 @@ const Navbar = () => {
                         position: "relative",
                     }}
                     >
+                    <div>
+                        <a href="/favourite">Favourite</a>
+                        <HeartTwoTone twoToneColor="#eb2f96" />
+                    </div>
+
                     <div>
                         <Button type="primary" href="http://localhost:3000/">Log Out</Button>
                     </div>
