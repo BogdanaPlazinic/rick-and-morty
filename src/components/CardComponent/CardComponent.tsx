@@ -1,13 +1,35 @@
 import React, { useState } from "react";
 import ModalComponent from "../ModalComponent/ModalComponent";
+import EditCharacterModal from "../EditCharacterModal/EditCharacterModal";
 
-const CardComponent = ({ results, removeFromFavorites } : { results: any[], removeFromFavorites?: (id: number) => void }) => {
+const CardComponent = ({ 
+  results, 
+  removeFromFavorites, 
+  updateFavorites 
+}: { 
+  results: any[], 
+  removeFromFavorites?: (id: number) => void,
+  updateFavorites?: (updatedCharacter: any) => void
+}) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedCharacter, setSelectedCharacter] = useState(null); 
+    const [selectedCharacter, setSelectedCharacter] = useState(null);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
     const showModal = (character) => {
       setSelectedCharacter(character);
       setIsModalOpen(true);
+    };
+
+    const openEditModal = (character) => {
+      setSelectedCharacter(character);
+      setIsEditModalOpen(true);
+    };
+
+    const handleSave = (updatedCharacter) => {
+      if (updateFavorites) {
+        updateFavorites(updatedCharacter);
+      }
+      setIsEditModalOpen(false);
     };
 
     let display = results?.map((character) => {
@@ -24,9 +46,9 @@ const CardComponent = ({ results, removeFromFavorites } : { results: any[], remo
                   removeFromFavorites(id);
                 }}
                 style={{
-                  position: "absolute",
-                  top: 10,
-                  right: 10,
+                  /* position: "absolute", */
+                  /* top: 10,
+                  right: 10, */
                   background: "red",
                   color: "white",
                   border: "none",
@@ -35,6 +57,27 @@ const CardComponent = ({ results, removeFromFavorites } : { results: any[], remo
                 }}
               >
                 Remove
+              </button>
+            )}
+
+            {updateFavorites && (
+              <button 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openEditModal(character);
+                }}
+                style={{
+                  /* position: "absolute", */
+                  /* bottom: 10,
+                  right: 10, */
+                  background: "blue",
+                  color: "white",
+                  border: "none",
+                  padding: "5px",
+                  cursor: "pointer"
+                }}
+              >
+                Edit
               </button>
             )}
           </div>
@@ -49,6 +92,15 @@ const CardComponent = ({ results, removeFromFavorites } : { results: any[], remo
             isOpen={isModalOpen} 
             setIsModalOpen={setIsModalOpen} 
             character={selectedCharacter} 
+          />
+        )}
+
+        {selectedCharacter && (
+          <EditCharacterModal
+            isOpen={isEditModalOpen}
+            onClose={() => setIsEditModalOpen(false)}
+            character={selectedCharacter}
+            onSave={handleSave}
           />
         )}
       </>
