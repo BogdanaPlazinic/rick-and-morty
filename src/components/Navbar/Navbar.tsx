@@ -30,6 +30,7 @@ const Navbar = () => {
                     <div>
                         <a href="/favourite">Favourite</a>
                         <HeartTwoTone twoToneColor="#eb2f96" />
+                        <a href="/characters">Characters</a>
                     </div>
 
                     <div>

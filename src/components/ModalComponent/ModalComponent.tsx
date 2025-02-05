@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Modal } from "antd";
 import { HeartTwoTone } from "@ant-design/icons";
 
 export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    if (character) {
+      const storedFavorites = localStorage.getItem("favorites");
+      const favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+      setIsFavorite(favorites.some((fav) => fav.id === character.id));
+    }
+  }, [character]);
+
   const handleOk = () => {
     setIsModalOpen(false);
   };
@@ -11,24 +21,37 @@ export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
     setIsModalOpen(false);
   };
 
+  const toggleFavorite = () => {
+    const storedFavorites = localStorage.getItem("favorites");
+    let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+
+    if (isFavorite) {
+      favorites = favorites.filter((fav) => fav.id !== character.id);
+    } else {
+      favorites.push(character);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+    setIsFavorite(!isFavorite);
+  };
+
   return (
     <Modal open={isOpen} onOk={handleOk} onCancel={handleCancel}>
       {character ? (
         <div>
           <div>
-            <HeartTwoTone twoToneColor="#eb2f96"
-            style={{
-              fontSize: '25px',
-              cursor: "pointer"
-            }}
+            <HeartTwoTone
+              twoToneColor={isFavorite ? "#eb2f96" : "#ccc"}
+              style={{
+                fontSize: "25px",
+                cursor: "pointer",
+              }}
+              onClick={toggleFavorite}
             />
           </div>
 
-          <h1>Name: <br/>{character.name}</h1>
-          <img 
-            src={character.image} 
-            alt={character.name} 
-          />
+          <h1>Name: <br />{character.name}</h1>
+          <img src={character.image} alt={character.name} />
           <p><b>Gender:</b> {character.gender}</p>
           <p><b>Species:</b> {character.species}</p>
           <p><b>Location Name:</b> {character.location.name}</p>

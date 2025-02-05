@@ -45,7 +45,7 @@ export const CharacterList = () => {
            setGender={setGender}
            
           />
-        <CardComponent results={results}/>
+        <CardComponent results={results} /* removeFromFavorites={() => {}} */ />
      </div>
      <div>
       <Paginaton info={info} pageNumber={pageNumber} setPageNumber={setPageNumber} />
