@@ -14,10 +14,14 @@
       "strict": false, // Isključuje stroga pravila
       "noImplicitAny": false, // Dozvoljava korišćenje `any` tipa
       "moduleResolution": "node",
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "baseUrl":"./",
+      "paths": {
+        "@src/": ["src/"]
+    }
     },
     "include": [
-      "./src/**/*"
+      "./src/**/*","./declaration.d.ts"
     ],
     "exclude": [
       "node_modules"

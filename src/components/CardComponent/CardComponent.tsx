@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ModalComponent from "../ModalComponent/ModalComponent";
 import EditCharacterModal from "../EditCharacterModal/EditCharacterModal";
+import styles from "../CardComponent/CardComponent.module.scss"
 
 const CardComponent = ({ 
   results, 
@@ -36,7 +37,7 @@ const CardComponent = ({
         let { id, name, image } = character;
         return (
           <div key={id} onClick={() => showModal(character)} style={{ position: "relative" }}>
-            <img src={image} alt="character image"/>
+            <img src={image} className={styles.car} alt="character image"/>
             <div>{name}</div>
 
             {removeFromFavorites && (

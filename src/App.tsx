@@ -4,6 +4,7 @@ import Characters from './pages/Characters/Characters';
 import Favourite from './pages/Favourite/Favourite';
 import Error404 from './pages/Error404/Error404';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import styles from "./App.module.scss";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
 function App() {
 
   return (
-    <main className='App'> 
+    <main className={`${styles.App}`}
+    > 
         <RouterProvider router={router} />
     </main>
   );
