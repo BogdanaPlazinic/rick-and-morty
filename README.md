@@ -1,3 +1,7 @@
+### Download the project to your local machine
+git clone https://github.com/BogdanaPlazinic/rick-and-morty
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
