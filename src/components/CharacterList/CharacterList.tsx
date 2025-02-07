@@ -5,6 +5,7 @@ import Filter from "../Filters/Filter";
 import Paginaton from "../Pagination/Pagination";
 import SearchComponent from "../SearchComponent/SearchComponent";
 import Navbar from "../Navbar/Navbar";
+import style from "./CharacterList.module.scss"
 
 export const CharacterList = () => {
 
@@ -30,7 +31,7 @@ export const CharacterList = () => {
 
 
   return (
-    <section>
+    <section className={style.bg}>
       <div>
         <Navbar />
       </div>

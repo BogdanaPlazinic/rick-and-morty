@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from './FilterBTN.module.scss'
 
 const FilterBTN = ({ name, index, items, task, setPageNumber }) => {
     return (
-        <div>
+        <div className={styles.filterBtnMainContainer}>
             
-            <div>
+            <div className={styles.filterBtnContainer}>
             <input 
             onClick={() => {
                 setPageNumber(1);

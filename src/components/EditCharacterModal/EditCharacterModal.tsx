@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Form, Input, Select, Button } from "antd";
+import { toast } from "react-toastify";
+
 
 const EditCharacterModal = ({ isOpen, onClose, character, onSave }) => {
   const [form] = Form.useForm();
@@ -20,6 +22,12 @@ const EditCharacterModal = ({ isOpen, onClose, character, onSave }) => {
     onClose();
   };
 
+  const notify = () => {
+    toast.info("Your changes are saved");
+  }
+
+
+  
   return (
     <Modal title="Edit Character" open={isOpen} onCancel={onClose} footer={null}>
       <Form form={form} layout="vertical" onFinish={handleSave}>
@@ -48,7 +56,10 @@ const EditCharacterModal = ({ isOpen, onClose, character, onSave }) => {
           </Select>
         </Form.Item>
 
-        <Button type="primary" htmlType="submit">Save Changes</Button>
+        <Button 
+        onClick={notify}
+        type="primary" 
+        htmlType="submit">Save Changes</Button>
       </Form>
     </Modal>
   );

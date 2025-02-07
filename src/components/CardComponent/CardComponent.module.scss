@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.charactersGridContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-content: center;
+    padding: 20px;
+}
+.characterMainContainer{
+    background-color: rgb(243, 230, 214);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 768px) {
+    .charactersGridContainer{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

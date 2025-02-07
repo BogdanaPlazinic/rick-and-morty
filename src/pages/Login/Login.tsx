@@ -51,7 +51,8 @@ function Login() {
                     <div className={styles.inputBg}>
                     <div>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1 className={styles.signIn}>Sign In</h1>
+                    <h1 className={styles.headingText}>Rick & Morty</h1>
+                    <h2 className={styles.signInText}>Sign in</h2>
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <label htmlFor="username">Username:</label>
                         <input

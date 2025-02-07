@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ModalComponent from "../ModalComponent/ModalComponent";
 import EditCharacterModal from "../EditCharacterModal/EditCharacterModal";
 import styles from "../CardComponent/CardComponent.module.scss"
+import { toast } from "react-toastify";
 
 const CardComponent = ({ 
   results, 
@@ -36,7 +37,10 @@ const CardComponent = ({
     let display = results?.map((character) => {
         let { id, name, image } = character;
         return (
-          <div key={id} onClick={() => showModal(character)} style={{ position: "relative" }}>
+          <div className={styles.characterMainContainer}
+          key={id} 
+          onClick={() => showModal(character)} 
+          style={{ position: "relative" }}>
             <img src={image} className={styles.car} alt="character image"/>
             <div>{name}</div>
 
@@ -45,6 +49,7 @@ const CardComponent = ({
                 onClick={(e) => {
                   e.stopPropagation(); 
                   removeFromFavorites(id);
+                  toast.error("Removed from favourites");
                 }}
                 style={{
                   /* position: "absolute", */
@@ -87,7 +92,9 @@ const CardComponent = ({
 
     return (
       <>
+      <div className={styles.charactersGridContainer}>
         {display}
+      </div>
         {selectedCharacter && (
           <ModalComponent 
             isOpen={isModalOpen} 

@@ -5,6 +5,7 @@ import Favourite from './pages/Favourite/Favourite';
 import Error404 from './pages/Error404/Error404';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styles from "./App.module.scss";
+import { ToastContainer } from 'react-toastify';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,7 @@ function App() {
     <main className={`${styles.App}`}
     > 
         <RouterProvider router={router} />
+        <ToastContainer aria-label="Notification container"/>
     </main>
   );
 }

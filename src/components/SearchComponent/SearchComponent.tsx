@@ -1,17 +1,15 @@
 import React from 'react';
 import { Input } from 'antd';
 import { Button } from 'antd';
+import styles from "./SearchComponent.module.scss"
+import "../../styles/_variables.scss";
 
 const { Search } = Input;
 
 const SearchComponent = ({ setSearch, setPageNumber }) => {
     return (
-        <header>
-            <div>
-                <h3>Rick & Morty</h3>
-            </div>
-        
-            <div >
+        <header className={styles.searchHeder}>
+            <div className={styles.searchConainer}>
                 <Search 
                 onChange={e=>{
                     setPageNumber(1);
