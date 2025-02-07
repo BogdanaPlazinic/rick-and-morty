@@ -1,41 +1,46 @@
 import React, { useState } from 'react';
 import { Divide as Hamburger } from 'hamburger-react'
 import { Button } from 'antd';
-import { HeartTwoTone } from '@ant-design/icons';
-
+/* import { HeartTwoTone } from '@ant-design/icons'; */
+import styles from './Navbar.module.scss'
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false)
 
     return (
-        <header>
-            <nav>
+        <header className={styles.headerMainContainer}>
+            <nav className={styles.header}>
+                <div className={styles.logoContainer}>
+                    <h3 className={styles.logoText}>Rick & Morty</h3>
+                </div>
+
+                <div className={styles.menuContainer}>
                 <Hamburger 
                 toggled={isOpen}
                 toggle={setOpen}
                 />
+                </div>
                 {isOpen && <div
-                style={{
-                    background: "#FFFF88",
-                    position: "fixed",
-                    width: "100%",
-                    height: "100%",
-                    zIndex: 2,
-                }}
+                 className={styles.menuOpen}
                 >
-                    <div 
-                    style={{
-                        position: "relative",
-                    }}
+                    <div
+                    className={styles.menuMainContainer}
                     >
-                    <div>
+                    <div className={styles.menuContent}>
                         <a href="/favourite">Favourite</a>
-                        <HeartTwoTone twoToneColor="#eb2f96" />
+                        {/* <HeartTwoTone twoToneColor="#eb2f96" /> */}
                         <a href="/characters">Characters</a>
+
+                        <div >
+                            <Button 
+                            className={styles.menuBtn}
+                            type="primary" 
+                            href="http://localhost:3000/">
+                            Log Out
+                            </Button>
+                        </div>
                     </div>
 
-                    <div>
-                        <Button type="primary" href="http://localhost:3000/">Log Out</Button>
-                    </div>
+                    
                     </div>
                 </div>}
             </nav>

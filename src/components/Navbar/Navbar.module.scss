@@ -1,0 +1,59 @@
+.header {   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    background-color: #ffff;
+}
+.logoText {
+    font-size: 25px;
+    cursor: pointer;
+}
+.logoContainer {
+    padding-left: 310px;
+}
+.menuContainer {
+    padding-right: 10px;
+    position: fixed;
+    z-index: 999;
+
+}
+.menuOpen{
+    background-color: #ffff;
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    z-index: 2;
+    top: 0px;
+}
+.menuMainContainer{
+    position: relative;
+}
+.menuContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+}
+.menuContent a{
+    text-decoration: none;
+    font-size: 25px; 
+    font-weight: bold;
+}
+.menuBtn{
+    width: 120px;
+    height: 45px;
+    background-color: #8842d5;
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 20px !important;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    
+    .logoContainer {
+        padding-left: 1650px;
+    }
+    }

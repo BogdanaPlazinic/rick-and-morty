@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "antd";
 import { HeartTwoTone } from "@ant-design/icons";
+import { toast } from "react-toastify";
 
 export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -24,11 +25,16 @@ export const ModalComponent = ({ isOpen, setIsModalOpen, character }) => {
   const toggleFavorite = () => {
     const storedFavorites = localStorage.getItem("favorites");
     let favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+    
 
     if (isFavorite) {
       favorites = favorites.filter((fav) => fav.id !== character.id);
+      toast.error("Removed from favourites");
+
     } else {
       favorites.push(character);
+      toast.success("Added to favourites");
+
     }
 
     localStorage.setItem("favorites", JSON.stringify(favorites));

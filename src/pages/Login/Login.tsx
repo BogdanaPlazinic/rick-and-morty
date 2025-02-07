@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef, useState, useEffect, useContext } from 'react';
 import AuthContext from '../../context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import styles from "./Login.module.scss"
 
 function Login() {
     const { setAuth } = useContext(AuthContext);
@@ -46,12 +47,16 @@ function Login() {
                     </p>
                 </section>
             ) : ( */}
-                <section>
+                <section className={`${styles.mainSection} ${styles.background}`}>
+                    <div className={styles.inputBg}>
+                    <div>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Sign In</h1>
-                    <form onSubmit={handleSubmit}>
+                    <h1 className={styles.headingText}>Rick & Morty</h1>
+                    <h2 className={styles.signInText}>Sign in</h2>
+                    <form onSubmit={handleSubmit} className={styles.form}>
                         <label htmlFor="username">Username:</label>
                         <input
+                            className={styles.input}
                             type="text"
                             id="username"
                             ref={userRef}
@@ -63,14 +68,17 @@ function Login() {
 
                         <label htmlFor="password">Password:</label>
                         <input
+                            className={styles.input2}
                             type="password"
                             id="password"
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
                         />
-                        <button>Sign In</button>
+                        <button className={styles.btn}>Sign In</button>
                     </form>
+                    </div>
+                    </div>
                 </section>
            {/*  )} */}
         </>
